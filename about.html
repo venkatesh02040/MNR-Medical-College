@@ -531,14 +531,16 @@
             border-radius: 18px;
             padding: 36px 32px;
             border: 1px solid #bcbdbe;
-            transition: transform .28s, box-shadow .28s, border-color .28s
+            transition: transform .28s, box-shadow .28s, border-color .28s, background .28s;
         }
 
-        .vm-card.featured {
+        /* HOVER STATE (replaces .featured) */
+        .vm-card:hover {
             background: var(--navy);
-            border-color: var(--navy)
+            border-color: var(--navy);
         }
 
+        /* ICON */
         .vm-icon {
             width: 56px;
             height: 56px;
@@ -547,44 +549,46 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 22px
+            margin-bottom: 22px;
         }
 
         .vm-icon [data-lucide] {
             width: 26px;
             height: 26px;
-            color: var(--blue)
+            color: var(--blue);
         }
 
-        .vm-card.featured .vm-icon {
+        /* ICON HOVER */
+        .vm-card:hover .vm-icon {
             background: rgba(240, 180, 41, .12);
-            border: 1px solid rgba(240, 180, 41, .2)
+            border: 1px solid rgba(240, 180, 41, .2);
         }
 
-        .vm-card.featured .vm-icon [data-lucide] {
-            color: var(--gold2)
+        .vm-card:hover .vm-icon [data-lucide] {
+            color: var(--gold2);
         }
 
+        /* TEXT */
         .vm-card h3 {
             font-family: 'Poppins', sans-serif;
             font-size: 22px;
             font-weight: 700;
             color: var(--navy);
-            margin-bottom: 12px
+            margin-bottom: 12px;
         }
 
-        .vm-card.featured h3 {
-            color: #fff
+        .vm-card:hover h3 {
+            color: #fff;
         }
 
         .vm-card p {
             font-size: 14.5px;
             color: var(--gray);
-            line-height: 1.75
+            line-height: 1.75;
         }
 
-        .vm-card.featured p {
-            color: rgba(255, 255, 255, .55)
+        .vm-card:hover p {
+            color: rgba(255, 255, 255, .55);
         }
 
         /* ── LEADERSHIP ── */
@@ -752,21 +756,6 @@
             font-size: 13.5px;
             color: var(--gray);
             line-height: 1.65;
-        }
-
-        .adv-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: .07em;
-            text-transform: uppercase;
-            background: #fffbeb;
-            color: #92400e;
-            border: 0.5px solid #fcd34d;
-            border-radius: 20px;
-            padding: 3px 10px;
         }
 
         /* Wrap the 3 cards in a row */
@@ -1245,7 +1234,7 @@
                     <p>To be Karnataka's most respected medical institution — recognized for producing doctors who
                         combine clinical excellence with deep compassion and ethical integrity.</p>
                 </div>
-                <div class="vm-card featured reveal">
+                <div class="vm-card reveal">
                     <div class="vm-icon"><i data-lucide="target"></i></div>
                     <h3>Mission</h3>
                     <p>To provide world-class medical education through modern infrastructure, research-driven teaching,
@@ -1332,7 +1321,7 @@
                     </div>
                     <div class="adv-feat-col">
                         <div class="adv-feat-icon"><i data-lucide="users"></i></div>
-                        <div class="adv-feat-num">1<sup>:8</sup></div>
+                        <div class="adv-feat-num">1:8</div>
                         <h4>Faculty-to-student ratio</h4>
                         <p>A small inaugural batch means unparalleled faculty access. Know your professors by name from
                             week one mentorship that larger batches simply cannot receive.</p>
@@ -1348,21 +1337,18 @@
 
                 <!-- Three regular cards -->
                 <div class="adv-card reveal">
-                    <span class="adv-badge">Day 1</span>
                     <div class="adv-icon"><i data-lucide="activity"></i></div>
                     <h4>Clinical access from day one</h4>
                     <p>MNR Hospital is NMC-certified across all 25 departments. Real ward rounds, OPD postings, and
                         procedures start in semester one — no waiting.</p>
                 </div>
                 <div class="adv-card reveal">
-                    <span class="adv-badge">Full Spectrum</span>
                     <div class="adv-icon"><i data-lucide="grid-2x2"></i></div>
                     <h4>All programs at once</h4>
                     <p>MNR launched MBBS through DM and MCh simultaneously. Study alongside PG and super-speciality
                         seniors — a richer academic environment from day one.</p>
                 </div>
                 <div class="adv-card reveal">
-                    <span class="adv-badge">Research</span>
                     <div class="adv-icon"><i data-lucide="flask-conical"></i></div>
                     <h4>Research grants from year one</h4>
                     <p>MNR's Research &amp; Innovation Cell funds student projects from the very first semester — no
