@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics | MNR Medical College</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1e293b;
+            background: #fff;
+            overflow-x: hidden
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        ul {
+            list-style: none
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer
+        }
+
+        :root {
+            --navy: #0d1f3c;
+            --navy2: #112240;
+            --navy3: #1a3a6e;
+            --blue: #1a56db;
+            --blue2: #1e40af;
+            --gold: #c8922a;
+            --gold2: #f0b429;
+            --white: #ffffff;
+            --off: #f0f5fa;
+            --off2: #f1f5f9;
+            --gray: #64748b;
+            --light: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 4px 24px rgba(13, 31, 60, .10);
+            --shadow-lg: 0 12px 48px rgba(13, 31, 60, .18)
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #fff;
+            border-bottom: 1px solid var(--light);
+            transition: box-shadow .3s
+        }
+
+        #navbar.scrolled {
+            box-shadow: 0 4px 32px rgba(0, 0, 0, .12)
+        }
+
+        .nav-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 32px
+        }
+
+        .nav-logo img {
+            width: 180px;
+            object-fit: contain
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2px
+        }
+
+        .nav-links>li {
+            position: relative
+        }
+
+        .nav-links>li>a,
+        .nav-links>li>button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 13px;
+            border-radius: 7px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--navy);
+            background: none;
+            border: none;
+            transition: color .2s, background .2s;
+            white-space: nowrap
+        }
+
+        .nav-links>li>a:hover,
+        .nav-links>li>button:hover {
+            color: var(--gold2)
+        }
+
+        .nav-links>li>a.active {
+            color: var(--gold2);
+            font-weight: 600
+        }
+
+        .nav-links>li>a [data-lucide],
+        .nav-links>li>button [data-lucide] {
+            width: 13px;
+            height: 13px;
+            transition: transform .25s;
+            flex-shrink: 0
+        }
+
+        .nav-links>li.open>button [data-lucide="chevron-down"] {
+            transform: rotate(180deg)
+        }
+
+        .dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) translateY(-6px);
+            background: var(--navy);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: var(--radius);
+            padding: 6px;
+            min-width: 215px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .22s, transform .22s;
+            box-shadow: var(--shadow-lg)
+        }
+
+        .nav-links>li.open .dropdown {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateX(-50%) translateY(0)
+        }
+
+        .dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            border-radius: 7px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, .75);
+            transition: background .18s, color .18s
+        }
+
+        .dropdown a:hover {
+            background: rgba(255, 255, 255, .09);
+            color: #fff
+        }
+
+        .dropdown a [data-lucide] {
+            width: 14px;
+            height: 14px;
+            color: var(--gold2);
+            flex-shrink: 0
+        }
+
+        .nav-cta {
+            background: var(--gold2) !important;
+            color: var(--navy) !important;
+            padding: 9px 20px !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            margin-left: 8px
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            border: none;
+            background: none
+        }
+
+        .hamburger span {
+            width: 22px;
+            height: 2px;
+            background: var(--navy);
+            border-radius: 2px;
+            transition: .3s;
+            display: block
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg)
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg)
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: var(--navy);
+            z-index: 998;
+            padding: 24px 0 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s cubic-bezier(.4, 0, .2, 1)
+        }
+
+        .mobile-nav.open {
+            max-height: 600px
+        }
+
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 32px;
+            font-size: 15px;
+            color: rgba(255, 255, 255, .78);
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            transition: color .2s, padding-left .2s
+        }
+
+        .mobile-nav a [data-lucide] {
+            width: 15px;
+            height: 15px;
+            color: var(--gold2)
+        }
+
+        .mobile-nav a:hover {
+            color: var(--gold2);
+            padding-left: 40px
+        }
+
+        .page-hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--navy) 0%, #0e2a5c 60%, #0a1e3d 100%);
+            position: relative;
+            overflow: hidden
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1550592704-6c76defa9985?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
+            opacity: 0.2
+        }
+
+        .page-hero-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 1
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, .45);
+            margin-bottom: 18px
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, .45);
+            transition: color .2s
+        }
+
+        .breadcrumb a:hover {
+            color: var(--gold2)
+        }
+
+        .breadcrumb [data-lucide] {
+            width: 12px;
+            height: 12px
+        }
+
+        .page-hero-inner h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 18px
+        }
+
+        .page-hero-inner h1 em {
+            color: var(--gold2);
+            font-style: normal
+        }
+
+        .page-hero-inner p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, .65);
+            max-width: 560px;
+            line-height: 1.75;
+            font-weight: 300
+        }
+
+        section {
+            padding: 96px 0
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px
+        }
+
+        .sec-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 14px
+        }
+
+        .sec-tag::before {
+            content: '';
+            width: 26px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px
+        }
+
+        .sec-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(28px, 3.5vw, 44px);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 14px
+        }
+
+        .sec-sub {
+            font-size: 16px;
+            color: var(--gray);
+            line-height: 1.75;
+            max-width: 560px
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* PROGRAM TABS */
+        .prog-nav {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0
+        }
+
+        .prog-nav-btn {
+            padding: 12px 22px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--gray);
+            border: none;
+            background: none;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: color .2s, border-color .2s;
+            white-space: nowrap
+        }
+
+        .prog-nav-btn.active {
+            color: var(--blue);
+            font-weight: 600;
+            border-bottom-color: var(--blue)
+        }
+
+        .prog-nav-btn:hover {
+            color: var(--navy)
+        }
+
+        .prog-section {
+            display: none
+        }
+
+        .prog-section.active {
+            display: block
+        }
+
+        /* PROGRAM DETAIL LAYOUT */
+        .prog-detail {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 48px;
+            align-items: start
+        }
+
+        .prog-detail p{
+            line-height: 1.45;
+        }
+
+        .prog-detail-img {
+            border-radius: 18px;
+            overflow: hidden;
+            height: 380px;
+            position: sticky;
+            top: 100px
+        }
+
+        .prog-detail-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .prog-detail-body h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px
+        }
+
+        .prog-detail-body p {
+            font-size: 15px;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 20px
+        }
+
+        .prog-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 24px 0
+        }
+
+        .prog-info-box {
+            background: var(--off);
+            border-radius: 10px;
+            padding: 14px 16px;
+            border: 1px solid var(--light)
+        }
+
+        .prog-info-box .label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 4px
+        }
+
+        .prog-info-box .value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy)
+        }
+
+        .prog-subs {
+            margin-top: 24px
+        }
+
+        .prog-subs h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: .08em
+        }
+
+        .prog-sub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .prog-sub-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: #fff;
+            border: 1px solid var(--light);
+            border-radius: 9px;
+            font-size: 13.5px;
+            color: var(--navy);
+            transition: border-color .2s, box-shadow .2s
+        }
+
+        .prog-sub-item [data-lucide] {
+            width: 14px;
+            height: 14px;
+            color: var(--blue);
+            flex-shrink: 0
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold2);
+            color: var(--navy);
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 14.5px;
+            font-weight: 600;
+            border: none;
+            transition: background .2s, transform .18s
+        }
+
+        .btn-gold [data-lucide] {
+            width: 16px;
+            height: 16px
+        }
+
+        /* FACILITIES */
+        .fac-bg {
+            background: var(--navy);
+            padding: 96px 0;
+        }
+
+        .fac-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: rgba(255, 255, 255, .06);
+            margin-top: 52px
+        }
+
+        .fac-item {
+            background: var(--navy2);
+            padding: 36px 28px;
+            transition: background .25s
+        }
+
+        .fac-item:hover {
+            background: #132a50
+        }
+
+        .fac-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: rgba(240, 180, 41, .1);
+            border: 1px solid rgba(240, 180, 41, .18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px
+        }
+
+        .fac-icon [data-lucide] {
+            width: 24px;
+            height: 24px;
+            color: var(--gold2)
+        }
+
+        .fac-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px
+        }
+
+        .fac-item p {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .45);
+            line-height: 1.7
+        }
+
+        /* CURRICULUM */
+        .curric-bg {
+            background: var(--off)
+        }
+
+        .phase-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 40px
+        }
+
+        .phase {
+            background: #fff;
+            border-radius: 14px;
+            border: 1px solid var(--light);
+            overflow: hidden
+        }
+
+        .phase-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            cursor: pointer;
+            transition: background .2s
+        }
+
+        .phase-head:hover {
+            background: var(--off)
+        }
+
+        .phase-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--navy);
+            color: var(--gold2);
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-family: 'Poppins', sans-serif
+        }
+
+        .phase-head-text {
+            flex: 1
+        }
+
+        .phase-head-text h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy)
+        }
+
+        .phase-head-text span {
+            font-size: 13px;
+            color: var(--gray)
+        }
+
+        .phase-arrow {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--off);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s, transform .3s;
+            flex-shrink: 0
+        }
+
+        .phase.open .phase-arrow {
+            transform: rotate(180deg);
+            background: var(--navy)
+        }
+
+        .phase.open .phase-arrow [data-lucide] {
+            color: #fff
+        }
+
+        .phase-arrow [data-lucide] {
+            width: 16px;
+            height: 16px;
+            color: var(--gray)
+        }
+
+        .phase-body {
+            display: none;
+            padding: 0 24px 20px
+        }
+
+        .phase.open .phase-body {
+            display: block
+        }
+
+        .phase-body ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 8px
+        }
+
+        .phase-body ul li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13.5px;
+            color: var(--gray)
+        }
+
+        .phase-body ul li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0
+        }
+
+        footer {
+            background: var(--navy);
+            padding: 72px 0 0
+        }
+
+        .footer-grid {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 52px
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px
+        }
+
+        .footer-logo img {
+            width: 180px;
+            filter: brightness(0) invert(1)
+        }
+
+        .footer-about p {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .45);
+            line-height: 1.75;
+            margin-bottom: 20px;
+            max-width: 290px
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 8px
+        }
+
+        .soc {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .55);
+            transition: background .2s, color .2s, border-color .2s
+        }
+
+        .soc:hover {
+            background: var(--gold);
+            color: var(--navy);
+            border-color: var(--gold)
+        }
+
+        .soc [data-lucide] {
+            width: 15px;
+            height: 15px
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gold2);
+            margin-bottom: 20px
+        }
+
+        .footer-col ul li {
+            margin-bottom: 9px
+        }
+
+        .footer-col ul li a {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .48);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color .2s, padding-left .2s
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+            padding-left: 4px
+        }
+
+        .footer-col ul li a [data-lucide] {
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
+            opacity: .6
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            align-items: flex-start
+        }
+
+        .footer-contact-item [data-lucide] {
+            width: 14px;
+            height: 14px;
+            color: var(--gold2);
+            flex-shrink: 0;
+            margin-top: 2px
+        }
+
+        .footer-contact-item span,
+        .footer-contact-item a {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .48);
+            line-height: 1.55;
+            transition: color .2s
+        }
+
+        .footer-contact-item a:hover {
+            color: #fff
+        }
+
+        .footer-bottom {
+            max-width: 1320px;
+            margin: 52px auto 0;
+            padding: 20px 32px;
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, .3);
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .footer-bottom a {
+            color: var(--gold2)
+        }
+
+        #btt {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 900;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--navy3);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: opacity .3s, transform .3s, background .2s
+        }
+
+        #btt.show {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0)
+        }
+
+        #btt:hover {
+            background: var(--gold2)
+        }
+
+        #btt [data-lucide] {
+            width: 18px;
+            height: 18px
+        }
+
+        @media(max-width:1100px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px
+            }
+
+            .prog-detail {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:900px) {
+            .nav-links {
+                display: none
+            }
+
+            .hamburger {
+                display: flex
+            }
+
+            section {
+                padding: 64px 0
+            }
+
+            .fac-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .prog-detail-img {
+                display: none
+            }
+        }
+
+        @media(max-width:640px) {
+            .footer-grid {
+                grid-template-columns: 1fr
+            }
+
+            .container {
+                padding: 0 20px
+            }
+
+            .nav-inner {
+                padding: 12px 20px
+            }
+
+            .fac-grid {
+                grid-template-columns: 1fr
+            }
+
+            .phase-body ul {
+                grid-template-columns: 1fr
+            }
+
+            .prog-info-grid {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><img src="./medical-college-logo.png"
+                    alt="MNR Medical College Logo"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="academics.html" class="active">Academics</a></li>
+                <li><a href="https://venkatesh02040.github.io/MNR-Hospital/index.html" target="_blank"
+                        rel="noopener">Hospital <i data-lucide="external-link"
+                            style="width:12px;height:12px;opacity:.6"></i></a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <button onclick="toggleMore(this)">More <i data-lucide="chevron-down"></i></button>
+                    <div class="dropdown">
+                        <a href="faculty.html"><i data-lucide="user-circle"></i>Faculty &amp; Staff</a>
+                        <a href="students.html"><i data-lucide="graduation-cap"></i>Student Zone</a>
+                        <a href="news-and-events.html"><i data-lucide="newspaper"></i>News &amp; Events</a>
+                        <a href="gallery.html"><i data-lucide="image"></i>Gallery</a>
+                    </div>
+                </li>
+                <li><a href="admissions.html" class="nav-cta">Apply Now</a></li>
+            </ul>
+            <button class="hamburger" id="ham" onclick="toggleMobile()"
+                aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html"><i data-lucide="home"></i>Home</a>
+        <a href="about.html"><i data-lucide="info"></i>About Us</a>
+        <a href="academics.html"><i data-lucide="book-open"></i>Academics</a>
+        <a href="https://venkatesh02040.github.io/MNR-Hospital/index.html" target="_blank"><i
+                data-lucide="heart-pulse"></i>Hospital ↗</a>
+        <a href="admissions.html"><i data-lucide="file-text"></i>Admissions</a>
+        <a href="faculty.html"><i data-lucide="users"></i>Faculty</a>
+        <a href="students.html"><i data-lucide="graduation-cap"></i>Student Zone</a>
+        <a href="news-and-events.html"><i data-lucide="newspaper"></i>News &amp; Events</a>
+        <a href="contact.html"><i data-lucide="phone"></i>Contact</a>
+    </div>
+
+    <div class="page-hero">
+        <div class="page-hero-inner">
+            <div class="breadcrumb"><a href="index.html">Home</a><i
+                    data-lucide="chevron-right"></i><span>Academics</span></div>
+            <h1>Academic <em>Programs</em></h1>
+            <p>Full-spectrum medical education — from MBBS to DM &amp; MCh all launched together, all under one roof,
+                all equipped with the best.</p>
+        </div>
+    </div>
+
+    <!-- PROGRAMS -->
+    <section id="mbbs">
+        <div class="container">
+            <div class="reveal">
+                <div class="sec-tag">All Programs</div>
+                <h2 class="sec-title">Choose Your Path</h2>
+                <p class="sec-sub">Every level of medical education, available from day one of MNR Medical College.</p>
+            </div>
+
+            <div class="prog-nav reveal" style="margin-top:36px">
+                <button class="prog-nav-btn active" data-id="mbbs">MBBS</button>
+                <button class="prog-nav-btn" data-id="pg">MD / MS</button>
+                <button class="prog-nav-btn" data-id="diploma">PG Diploma</button>
+                <button class="prog-nav-btn" data-id="super">DM / MCh</button>
+                <button class="prog-nav-btn" data-id="allied">Allied Health</button>
+            </div>
+
+            <!-- MBBS -->
+            <div class="prog-section active" id="ps-mbbs">
+                <div class="prog-detail">
+                    <div>
+                        <h2>MBBS — Bachelor of Medicine, Bachelor of Surgery</h2>
+                        <p>The cornerstone of medical education at MNR. Our MBBS program is a 5.5-year comprehensive
+                            course covering pre-clinical, para-clinical, and clinical subjects with deep integration of
+                            the attached MNR Teaching Hospital.</p>
+                        <p>Students benefit from simulation-based clinical skills labs, anatomy cadaveric dissection
+                            halls, digital pathology, and supervised ward postings from the first year.</p>
+                        <div class="prog-info-grid">
+                            <div class="prog-info-box">
+                                <div class="label">Duration</div>
+                                <div class="value">5.5 Years (4.5 + 1 Internship)</div>
+                            </div>
+                            <div class="prog-info-box">
+                                <div class="label">Seats</div>
+                                <div class="value">150 Seats</div>
+                            </div>
+                            <div class="prog-info-box">
+                                <div class="label">Eligibility</div>
+                                <div class="value">NEET-UG Qualified, 10+2 PCB 60%</div>
+                            </div>
+                            <div class="prog-info-box">
+                                <div class="label">Approved By</div>
+                                <div class="value">NMC / MCI</div>
+                            </div>
+                        </div>
+                        <a href="admissions.html" class="btn-gold"><i data-lucide="file-text"></i>Apply for MBBS
+                            2026</a>
+                    </div>
+                    <div class="prog-detail-img"><img
+                            src="https://images.unsplash.com/photo-1659353888906-adb3e0041693?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="MBBS">
+                    </div>
+                </div>
+            </div>
+
+            <!-- PG -->
+            <div class="prog-section" id="ps-pg">
+                <div class="prog-detail">
+                    <div>
+                        <h2>MD / MS — Postgraduate Medical Degrees</h2>
+                        <p>MNR's postgraduate programs offer advanced clinical and research training across key
+                            specialities in Medicine and Surgery. Small batch sizes ensure close mentorship from senior
+                            faculty.</p>
+                        <div class="prog-info-grid">
+                            <div class="prog-info-box">
+                                <div class="label">Duration</div>
+                                <div class="value">3 Years</div>
+                            </div>
+                            <div class="prog-info-box">
+                                <div class="label">Eligibility</div>
+                                <div class="value">NEET-PG Qualified, MBBS</div>
+                            </div>
+                        </div>
+                        <div class="prog-subs">
+                            <h4>MD Specialities</h4>
+                            <div class="prog-sub-list">
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MD General Medicine</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MD Paediatrics</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MD Anaesthesiology</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MD Radiology</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MD Pathology</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MD Microbiology</div>
+                            </div>
+                        </div>
+                        <div class="prog-subs" style="margin-top:18px">
+                            <h4>MS Specialities</h4>
+                            <div class="prog-sub-list">
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MS General Surgery</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MS Orthopaedics</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MS Obstetrics &amp;
+                                    Gynaecology</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MS ENT (Otorhinolaryngology)
+                                </div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MS Ophthalmology</div>
+                            </div>
+                        </div>
+                        <a href="admissions.html" class="btn-gold" style="margin-top:28px"><i
+                                data-lucide="file-text"></i>Apply for PG Programs</a>
+                    </div>
+                    <div class="prog-detail-img"><img
+                            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80" alt="PG">
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIPLOMA -->
+            <div class="prog-section" id="ps-diploma">
+                <div class="prog-detail">
+                    <div>
+                        <h2>PG Diploma Programs</h2>
+                        <p>Focused 2-year postgraduate diploma courses for specialization in key clinical areas. Ideal
+                            for working doctors looking to add a recognized specialization credential.</p>
+                        <div class="prog-info-grid">
+                            <div class="prog-info-box">
+                                <div class="label">Duration</div>
+                                <div class="value">2 Years</div>
+                            </div>
+                            <div class="prog-info-box">
+                                <div class="label">Eligibility</div>
+                                <div class="value">MBBS (NMC Recognized)</div>
+                            </div>
+                        </div>
+                        <div class="prog-subs">
+                            <h4>Available Diplomas</h4>
+                            <div class="prog-sub-list">
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>Diploma in Child Health (DCH)
+                                </div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>Diploma in Obstetrics &amp;
+                                    Gynaecology (DGO)</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>Diploma in Anaesthesiology
+                                    (DA)</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>Diploma in Ophthalmology (DO)
+                                </div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>Diploma in Orthopaedics
+                                    (D.Ortho)</div>
+                            </div>
+                        </div>
+                        <a href="admissions.html" class="btn-gold" style="margin-top:28px"><i
+                                data-lucide="file-text"></i>Apply for Diploma</a>
+                    </div>
+                    <div class="prog-detail-img"><img
+                            src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80" alt="Diploma">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUPER SPECIALITY -->
+            <div class="prog-section" id="ps-super">
+                <div class="prog-detail">
+                    <div>
+                        <h2>DM / MCh — Super Speciality Programs</h2>
+                        <p>MNR is among the few colleges in Karnataka to launch super-speciality programs from
+                            inception. DM and MCh programs offer doctoral-level training in advanced medical and
+                            surgical specialities.</p>
+                        <div class="prog-info-grid">
+                            <div class="prog-info-box">
+                                <div class="label">Duration</div>
+                                <div class="value">3 Years</div>
+                            </div>
+                            <div class="prog-info-box">
+                                <div class="label">Eligibility</div>
+                                <div class="value">NEET-SS Qualified, MD/MS</div>
+                            </div>
+                        </div>
+                        <div class="prog-subs">
+                            <h4>DM Programs</h4>
+                            <div class="prog-sub-list">
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>DM Cardiology</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>DM Neurology</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>DM Nephrology</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>DM Gastroenterology</div>
+                            </div>
+                        </div>
+                        <div class="prog-subs" style="margin-top:18px">
+                            <h4>MCh Programs</h4>
+                            <div class="prog-sub-list">
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MCh Neurosurgery</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MCh Urology</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MCh Cardiothoracic Surgery
+                                </div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>MCh Plastic Surgery</div>
+                            </div>
+                        </div>
+                        <a href="admissions.html" class="btn-gold" style="margin-top:28px"><i
+                                data-lucide="file-text"></i>Apply for DM / MCh</a>
+                    </div>
+                    <div class="prog-detail-img"><img
+                            src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&q=80"
+                            alt="Super Speciality"></div>
+                </div>
+            </div>
+
+            <!-- ALLIED -->
+            <div class="prog-section" id="ps-allied">
+                <div class="prog-detail">
+                    <div>
+                        <h2>Allied Health Sciences</h2>
+                        <p>Our allied health programs produce skilled laboratory technicians and healthcare
+                            professionals who are integral to modern medical teams. All programs run with full hospital
+                            integration.</p>
+                        <div class="prog-info-grid">
+                            <div class="prog-info-box">
+                                <div class="label">BMLT Duration</div>
+                                <div class="value">3 Years + 1 Year Internship</div>
+                            </div>
+                            <div class="prog-info-box">
+                                <div class="label">DMLT Duration</div>
+                                <div class="value">2 Years</div>
+                            </div>
+                            <div class="prog-info-box">
+                                <div class="label">Eligibility</div>
+                                <div class="value">10+2 Science (PCB/PCM)</div>
+                            </div>
+                            <div class="prog-info-box">
+                                <div class="label">Seats</div>
+                                <div class="value">60 (BMLT) · 40 (DMLT)</div>
+                            </div>
+                        </div>
+                        <div class="prog-subs">
+                            <h4>Programs Offered</h4>
+                            <div class="prog-sub-list">
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>BMLT — Bachelor of Medical
+                                    Lab Technology</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>DMLT — Diploma in Medical Lab
+                                    Technology</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>B.Sc. Nursing</div>
+                                <div class="prog-sub-item"><i data-lucide="circle-dot"></i>B.Sc. Radiology &amp; Imaging
+                                    Technology</div>
+                            </div>
+                        </div>
+                        <a href="admissions.html" class="btn-gold" style="margin-top:28px"><i
+                                data-lucide="file-text"></i>Apply for Allied Health</a>
+                    </div>
+                    <div class="prog-detail-img"><img
+                            src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Allied Health"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FACILITIES -->
+    <div class="fac-bg">
+        <div class="container">
+            <div class="reveal" style="text-align:center">
+                <div class="sec-tag" style="justify-content:center;color:var(--gold2)">World-Class Infrastructure</div>
+                <h2 class="sec-title" style="color:#fff">Academic Facilities</h2>
+                <p class="sec-sub" style="margin:0 auto;color:rgba(255,255,255,.5)">Every facility purpose-built for
+                    modern medical education in 2026.</p>
+            </div>
+            <div class="fac-grid reveal">
+                <div class="fac-item">
+                    <div class="fac-icon"><i data-lucide="microscope"></i></div>
+                    <h3>Simulation Lab</h3>
+                    <p>High-fidelity patient simulators, laparoscopy trainers, and clinical skills stations for safe,
+                        repeatable learning.</p>
+                </div>
+                <div class="fac-item">
+                    <div class="fac-icon"><i data-lucide="book-open"></i></div>
+                    <h3>Digital Library</h3>
+                    <p>50,000+ volumes, online journal access, e-learning terminals, and dedicated reading rooms open 24
+                        hours.</p>
+                </div>
+                <div class="fac-item">
+                    <div class="fac-icon"><i data-lucide="monitor"></i></div>
+                    <h3>Smart Classrooms</h3>
+                    <p>Fully AV-equipped lecture halls with interactive boards, recorded sessions, and live hospital
+                        case streaming.</p>
+                </div>
+                <div class="fac-item">
+                    <div class="fac-icon"><i data-lucide="flask-conical"></i></div>
+                    <h3>Anatomy &amp; Histology Labs</h3>
+                    <p>Cadaveric dissection halls, plastinated specimens, digital anatomy software, and virtual
+                        dissection tables.</p>
+                </div>
+                <div class="fac-item">
+                    <div class="fac-icon"><i data-lucide="activity"></i></div>
+                    <h3>Pathology &amp; Microbiology</h3>
+                    <p>Advanced diagnostic labs with digital pathology scanning, culture facilities, and biosafety level
+                        2 setups.</p>
+                </div>
+                <div class="fac-item">
+                    <div class="fac-icon"><i data-lucide="heart-pulse"></i></div>
+                    <h3>Clinical Skills Centre</h3>
+                    <p>Dedicated OSCE stations, procedural trainers, and standardized patient programs for
+                        assessment-ready clinical skills.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CURRICULUM STRUCTURE -->
+    <section class="curric-bg">
+        <div class="container">
+            <div class="reveal">
+                <div class="sec-tag">MBBS Curriculum</div>
+                <h2 class="sec-title">Phase-wise Curriculum Structure</h2>
+                <p class="sec-sub">Our MBBS curriculum follows NMC guidelines with Competency-Based Medical Education
+                    (CBME) framework.</p>
+            </div>
+            <div class="phase-list">
+                <div class="phase reveal">
+                    <div class="phase-head" onclick="togglePhase(this)">
+                        <div class="phase-num">1</div>
+                        <div class="phase-head-text">
+                            <h4>Phase I — Pre-Clinical</h4><span>Year 1 &amp; Partial Year 2 · Foundation
+                                Sciences</span>
+                        </div>
+                        <div class="phase-arrow"><i data-lucide="chevron-down"></i></div>
+                    </div>
+                    <div class="phase-body">
+                        <ul>
+                            <li>Anatomy (Gross, Histology, Embryology)</li>
+                            <li>Physiology</li>
+                            <li>Biochemistry</li>
+                            <li>Community Medicine (Introduction)</li>
+                            <li>English &amp; Communication Skills</li>
+                            <li>Early Clinical Exposure</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="phase reveal">
+                    <div class="phase-head" onclick="togglePhase(this)">
+                        <div class="phase-num">2</div>
+                        <div class="phase-head-text">
+                            <h4>Phase II — Para-Clinical</h4><span>Year 2 &amp; Year 3 · Integrated Sciences</span>
+                        </div>
+                        <div class="phase-arrow"><i data-lucide="chevron-down"></i></div>
+                    </div>
+                    <div class="phase-body">
+                        <ul>
+                            <li>Pathology</li>
+                            <li>Microbiology</li>
+                            <li>Pharmacology</li>
+                            <li>Forensic Medicine &amp; Toxicology</li>
+                            <li>Community Medicine</li>
+                            <li>Clinical Postings (Concurrent)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="phase reveal">
+                    <div class="phase-head" onclick="togglePhase(this)">
+                        <div class="phase-num">3</div>
+                        <div class="phase-head-text">
+                            <h4>Phase III — Clinical</h4><span>Year 3, 4 &amp; 4.5 · Hospital-Based Training</span>
+                        </div>
+                        <div class="phase-arrow"><i data-lucide="chevron-down"></i></div>
+                    </div>
+                    <div class="phase-body">
+                        <ul>
+                            <li>General Medicine</li>
+                            <li>General Surgery</li>
+                            <li>Obstetrics &amp; Gynaecology</li>
+                            <li>Paediatrics</li>
+                            <li>ENT · Ophthalmology · Orthopaedics</li>
+                            <li>Psychiatry · Dermatology · Radiology</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="phase reveal">
+                    <div class="phase-head" onclick="togglePhase(this)">
+                        <div class="phase-num">4</div>
+                        <div class="phase-head-text">
+                            <h4>Compulsory Rotating Internship</h4><span>1 Year · Supervised Clinical Practice</span>
+                        </div>
+                        <div class="phase-arrow"><i data-lucide="chevron-down"></i></div>
+                    </div>
+                    <div class="phase-body">
+                        <ul>
+                            <li>Medicine &amp; Allied Specialities (2 months)</li>
+                            <li>Surgery &amp; Allied Specialities (2 months)</li>
+                            <li>OBG (2 months)</li>
+                            <li>Community Medicine (2 months)</li>
+                            <li>Elective Rotation (2 months)</li>
+                            <li>Emergency Medicine &amp; ICU (1 month)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo"><img src="./medical-college-logo.png" alt="MNR Medical College"></div>
+                <p>A brand new world-class medical institution at MNR Medicity Campus, Kolambe, Karnataka — committed to
+                    shaping compassionate, skilled, and ethical doctors.</p>
+                <div class="footer-social">
+                    <a href="#" class="soc"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="soc"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="soc"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="soc"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="academics.html#mbbs"><i data-lucide="chevron-right"></i>MBBS</a></li>
+                    <li><a href="academics.html#pg"><i data-lucide="chevron-right"></i>MD / MS</a></li>
+                    <li><a href="academics.html#diploma"><i data-lucide="chevron-right"></i>PG Diploma</a></li>
+                    <li><a href="academics.html#superspeciality"><i data-lucide="chevron-right"></i>DM / MCh</a></li>
+                    <li><a href="academics.html#allied"><i data-lucide="chevron-right"></i>BMLT / DMLT</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html"><i data-lucide="chevron-right"></i>About Us</a></li>
+                    <li><a href="admissions.html"><i data-lucide="chevron-right"></i>Admissions</a></li>
+                    <li><a href="faculty.html"><i data-lucide="chevron-right"></i>Faculty</a></li>
+                    <li><a href="students.html"><i data-lucide="chevron-right"></i>Student Zone</a></li>
+                    <li><a href="https://venkatesh02040.github.io/MNR-Hospital/index.html" target="_blank"><i
+                                data-lucide="chevron-right"></i>MNR Hospital ↗</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="footer-contact-item"><i data-lucide="map-pin"></i><a
+                        href="https://maps.app.goo.gl/hkBdSHg7KFW2cY4w7">
+                        MNR Medicity Campus, Kolambe, Behind Bajpe Proper, Karnataka 574142
+                    </a></div>
+                <div class="footer-contact-item"><i data-lucide="phone"></i><a href="tel:+919876543210">+91 98765
+                        43210</a></div>
+                <div class="footer-contact-item"><i data-lucide="mail"></i><a
+                        href="mailto:info@mnrmedicalcollege.com">info@mnrmedicalcollege.com</a></div>
+                <div class="footer-contact-item"><i data-lucide="clock"></i><span>Mon – Sat: 9:00 AM – 5:00 PM</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>©
+                <script>document.write(new Date().getFullYear())</script> MNR Medical College. All rights reserved.
+            </span><span>Designed and developed by <a href="https://thinkb.agency/" target="_blank">thinkB</a></span>
+        </div>
+    </footer>
+    <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i data-lucide="arrow-up"></i></button>
+
+    <script>
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', scrollY > 10);
+            document.getElementById('btt').classList.toggle('show', scrollY > 320);
+        });
+
+        // Mobile nav
+        function toggleMobile() {
+            document.getElementById('ham').classList.toggle('open');
+            document.getElementById('mobileNav').classList.toggle('open');
+        }
+
+        document.querySelectorAll('.mobile-nav a').forEach(a => {
+            a.addEventListener('click', () => {
+                document.getElementById('ham').classList.remove('open');
+                document.getElementById('mobileNav').classList.remove('open');
+            });
+        });
+
+        // More dropdown
+        function toggleMore(btn) {
+            const li = btn.closest('li');
+            const isOpen = li.classList.contains('open');
+            document.querySelectorAll('.nav-links>li').forEach(l => l.classList.remove('open'));
+            if (!isOpen) li.classList.add('open');
+
+            if (!isOpen) {
+                setTimeout(() => {
+                    document.addEventListener('click', function h(e) {
+                        if (!li.contains(e.target)) {
+                            li.classList.remove('open');
+                            document.removeEventListener('click', h);
+                        }
+                    });
+                }, 10);
+            }
+        }
+
+        // === MAIN PROGRAM TAB FUNCTION ===
+        function showProg(id, btn) {
+            // Remove active from all buttons and sections
+            document.querySelectorAll('.prog-nav-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.prog-section').forEach(s => s.classList.remove('active'));
+
+            // Activate clicked button and section
+            btn.classList.add('active');
+            document.getElementById('ps-' + id).classList.add('active');
+        }
+
+        // Attach click listeners to all tab buttons using data-id
+        document.querySelectorAll('.prog-nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.getAttribute('data-id');
+                showProg(id, btn);
+            });
+        });
+
+        // Handle direct links with hash (#mbbs, #pg, etc.)
+        function handleHash() {
+            let hash = window.location.hash.replace('#', '').toLowerCase();
+            if (!hash) return;
+
+            // Mapping (in case someone uses old link)
+            const hashMap = {
+                'mbbs': 'mbbs',
+                'pg': 'pg',
+                'diploma': 'diploma',
+                'superspeciality': 'super',
+                'super': 'super',
+                'allied': 'allied'
+            };
+
+            const targetId = hashMap[hash];
+            if (!targetId) return;
+
+            // Find the button with matching data-id
+            const btn = document.querySelector(`.prog-nav-btn[data-id="${targetId}"]`);
+            if (btn) {
+                showProg(targetId, btn);
+
+                // Smooth scroll to the program section
+                setTimeout(() => {
+                    document.getElementById('mbbs').scrollIntoView({ behavior: 'smooth' });
+                }, 150);
+            }
+        }
+
+        // Run hash handler when page loads
+        window.addEventListener('load', handleHash);
+        // Also handle browser back/forward buttons
+        window.addEventListener('hashchange', handleHash);
+
+        // Phase accordion
+        function togglePhase(head) {
+            const phase = head.closest('.phase');
+            phase.classList.toggle('open');
+        }
+
+        // Scroll reveal
+        const revObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    revObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+    </script>
+
+    <a href="https://wa.me/919876543210?text=Hello%20MNR%20College,%20I%20need%20assistance." class="wa-float"
+        target="_blank" aria-label="WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <style>
+        .wa-float {
+            position: fixed;
+            bottom: 86px;
+            right: 24px;
+            width: 50px;
+            height: 50px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 30px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+
+
+        @media (max-width: 768px) {
+.wa-float {
+        width: 50px;
+        height: 50px;
+        bottom: 86px;
+        right: 24px;
+        font-size: 28px;
+    }       }
+    </style>
+</body>
+
+</html>

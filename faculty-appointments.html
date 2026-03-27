@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Faculty Appointments Announced Across All Departments | MNR Medical College</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #1e293b;
+            background: #fff;
+            overflow-x: hidden
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        ul {
+            list-style: none
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer
+        }
+
+        :root {
+            --navy: #0d1f3c;
+            --navy2: #112240;
+            --navy3: #1a3a6e;
+            --blue: #1a56db;
+            --gold: #c8922a;
+            --gold2: #f0b429;
+            --off: #f0f5fa;
+            --off2: #f1f5f9;
+            --gray: #64748b;
+            --light: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 4px 24px rgba(13, 31, 60, .10);
+            --shadow-lg: 0 12px 48px rgba(13, 31, 60, .18)
+        }
+
+        /* NAV */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #fff;
+            border-bottom: 1px solid var(--light);
+            transition: box-shadow .3s
+        }
+
+        #navbar.scrolled {
+            box-shadow: 0 4px 32px rgba(0, 0, 0, .12)
+        }
+
+        .nav-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 32px
+        }
+
+        .nav-logo img {
+            width: 180px;
+            object-fit: contain
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2px
+        }
+
+        .nav-links>li {
+            position: relative
+        }
+
+        .nav-links>li>a,
+        .nav-links>li>button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 13px;
+            border-radius: 7px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--navy);
+            background: none;
+            border: none;
+            transition: color .2s, background .2s;
+            white-space: nowrap
+        }
+
+        .nav-links>li>a:hover,
+        .nav-links>li>button:hover {
+            color: var(--gold2);
+        }
+
+        .nav-links>li>a [data-lucide],
+        .nav-links>li>button [data-lucide] {
+            width: 13px;
+            height: 13px;
+            transition: transform .25s;
+            flex-shrink: 0
+        }
+
+        .nav-links>li.open>button [data-lucide="chevron-down"] {
+            transform: rotate(180deg)
+        }
+
+        .dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) translateY(-6px);
+            background: var(--navy);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: var(--radius);
+            padding: 6px;
+            min-width: 215px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .22s, transform .22s;
+            box-shadow: var(--shadow-lg)
+        }
+
+        .nav-links>li.open .dropdown {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateX(-50%) translateY(0)
+        }
+
+        .dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            border-radius: 7px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, .75);
+            transition: background .18s, color .18s
+        }
+
+        .dropdown a:hover {
+            background: rgba(255, 255, 255, .09);
+            color: #fff
+        }
+
+        .dropdown a [data-lucide] {
+            width: 14px;
+            height: 14px;
+            color: var(--gold2);
+            flex-shrink: 0
+        }
+
+        .dropdown-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, .07);
+            margin: 4px 8px
+        }
+
+        .nav-cta {
+            background: var(--gold2) !important;
+            color: var(--navy) !important;
+            padding: 9px 20px !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            margin-left: 8px
+        }
+
+        .nav-cta:hover {
+            background: var(--gold) !important;
+            transform: translateY(-1px) !important
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            border: none;
+            background: none
+        }
+
+        .hamburger span {
+            width: 22px;
+            height: 2px;
+            background: var(--navy);
+            border-radius: 2px;
+            transition: .3s;
+            display: block
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg)
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg)
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: var(--navy);
+            z-index: 998;
+            padding: 24px 0 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s cubic-bezier(.4, 0, .2, 1)
+        }
+
+        .mobile-nav.open {
+            max-height: 600px
+        }
+
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 32px;
+            font-size: 15px;
+            color: rgba(255, 255, 255, .78);
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            transition: color .2s, padding-left .2s
+        }
+
+        .mobile-nav a [data-lucide] {
+            width: 15px;
+            height: 15px;
+            color: var(--gold2)
+        }
+
+        .mobile-nav a:hover {
+            color: var(--gold2);
+            padding-left: 40px
+        }
+
+        /* ARTICLE HERO */
+        .article-hero {
+            padding-top: 80px;
+            background: var(--navy);
+            position: relative;
+            overflow: hidden
+        }
+
+        .article-hero-img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            opacity: .35
+        }
+
+        .article-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--navy) 10%, rgba(13, 31, 60, .6) 60%, rgba(13, 31, 60, .3) 100%)
+        }
+
+        .article-hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 52px 0 0;
+            z-index: 2
+        }
+
+        .article-hero-content .container {
+            max-width: 860px
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, .4);
+            margin-bottom: 20px;
+            flex-wrap: wrap
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, .4);
+            transition: color .2s
+        }
+
+        .breadcrumb a:hover {
+            color: var(--gold2)
+        }
+
+        .breadcrumb [data-lucide] {
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0
+        }
+
+        .news-cat {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 18px
+        }
+
+        .cat-research {
+            background: rgba(124, 58, 237, .9);
+            color: #fff
+        }
+
+        .cat-achievement {
+            background: rgba(220, 38, 38, .9);
+            color: #fff
+        }
+
+        .cat-infrastructure {
+            background: rgba(14, 165, 233, .9);
+            color: #fff
+        }
+
+        .cat-events {
+            background: rgba(200, 146, 42, .9);
+            color: #fff
+        }
+
+        .cat-admissions {
+            background: rgba(26, 86, 219, .9);
+            color: #fff
+        }
+
+        .cat-faculty {
+            background: rgba(5, 150, 105, .9);
+            color: #fff
+        }
+
+        .article-hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(28px, 4vw, 52px);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 24px
+        }
+
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding-bottom: 36px;
+            border-bottom: 1px solid rgba(255, 255, 255, .1)
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, .5)
+        }
+
+        .meta-item [data-lucide] {
+            width: 14px;
+            height: 14px
+        }
+
+        .meta-author {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .meta-author img {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, .2)
+        }
+
+        .meta-author span {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .6);
+            font-weight: 500
+        }
+
+        /* ARTICLE BODY */
+        .article-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 60px;
+            align-items: start;
+            padding-top: 64px;
+            padding-bottom: 96px
+        }
+
+        .article-body {}
+
+        .article-body h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 36px 0 14px;
+            line-height: 1.3
+        }
+
+        .article-body h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 28px 0 12px
+        }
+
+        .article-body p {
+            font-size: 16px;
+            color: #374151;
+            line-height: 1.85;
+            margin-bottom: 20px
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin: 0 0 20px 0;
+            padding-left: 0
+        }
+
+        .article-body ul li,
+        .article-body ol li {
+            font-size: 15.5px;
+            color: #374151;
+            line-height: 1.75;
+            padding: 6px 0 6px 24px;
+            position: relative
+        }
+
+        .article-body ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--gold)
+        }
+
+        .article-body ol {
+            counter-reset: ol-counter
+        }
+
+        .article-body ol li {
+            counter-increment: ol-counter
+        }
+
+        .article-body ol li::before {
+            content: counter(ol-counter)'.';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            font-weight: 700;
+            color: var(--blue);
+            font-size: 14px
+        }
+
+        .article-body .lead {
+            font-size: 18px;
+            color: var(--navy);
+            font-weight: 500;
+            line-height: 1.75;
+            margin-bottom: 28px;
+            border-left: 4px solid var(--gold);
+            padding-left: 20px
+        }
+
+        .article-body blockquote {
+            background: var(--off);
+            border-left: 4px solid var(--blue);
+            border-radius: 0 12px 12px 0;
+            padding: 22px 24px;
+            margin: 28px 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 19px;
+            font-style: italic;
+            color: var(--navy);
+            line-height: 1.6
+        }
+
+        .article-body blockquote cite {
+            display: block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-style: normal;
+            color: var(--gray);
+            margin-top: 10px;
+            font-weight: 600
+        }
+
+        .article-body .highlight-box {
+            background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+            border: 1px solid #bae6fd;
+            border-radius: 14px;
+            padding: 24px 26px;
+            margin: 28px 0
+        }
+
+        .article-body .highlight-box h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 10px
+        }
+
+        .article-body .highlight-box p {
+            margin-bottom: 0;
+            font-size: 14.5px;
+            color: var(--navy)
+        }
+
+        .article-body .article-img {
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 32px 0
+        }
+
+        .article-body .article-img img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover
+        }
+
+        .article-body .article-img figcaption {
+            font-size: 12.5px;
+            color: var(--gray);
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 36px;
+            padding-top: 28px;
+            border-top: 1px solid var(--light)
+        }
+
+        .tag {
+            font-size: 12.5px;
+            font-weight: 500;
+            background: var(--off2);
+            color: var(--navy);
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--light);
+            transition: all .2s
+        }
+
+        .tag:hover {
+            background: var(--navy);
+            color: #fff;
+            border-color: var(--navy)
+        }
+
+        .share-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px
+        }
+
+        .share-row span {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy)
+        }
+
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            border: 1.5px solid var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            transition: all .2s
+        }
+
+        .share-btn:hover {
+            background: var(--navy);
+            color: #fff;
+            border-color: var(--navy)
+        }
+
+        .share-btn [data-lucide] {
+            width: 15px;
+            height: 15px
+        }
+
+        /* SIDEBAR */
+        .article-sidebar {
+            position: sticky;
+            top: 100px
+        }
+
+        .sidebar-card {
+            background: #fff;
+            border: 1px solid var(--light);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px
+        }
+
+        .sidebar-card h4 {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 18px
+        }
+
+        .sidebar-related-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--off2);
+            cursor: pointer;
+            transition: opacity .2s
+        }
+
+        .sidebar-related-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0
+        }
+
+        .sidebar-related-item:hover {
+            opacity: .75
+        }
+
+        .sri-img {
+            width: 60px;
+            height: 52px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0
+        }
+
+        .sri-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .sri-body h5 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.4;
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden
+        }
+
+        .sri-body span {
+            font-size: 11.5px;
+            color: var(--gray)
+        }
+
+        .quick-facts li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--off2);
+            font-size: 13.5px
+        }
+
+        .quick-facts li:last-child {
+            border-bottom: none
+        }
+
+        .quick-facts li [data-lucide] {
+            width: 15px;
+            height: 15px;
+            color: var(--blue);
+            flex-shrink: 0;
+            margin-top: 2px
+        }
+
+        .quick-facts li strong {
+            color: var(--navy);
+            min-width: 80px;
+            flex-shrink: 0
+        }
+
+        .quick-facts li span {
+            color: var(--gray)
+        }
+
+        .apply-cta {
+            background: var(--navy);
+            border-radius: 14px;
+            padding: 24px;
+            text-align: center
+        }
+
+        .apply-cta h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 8px
+        }
+
+        .apply-cta p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .5);
+            margin-bottom: 18px;
+            line-height: 1.6
+        }
+
+        .apply-cta a {
+            display: block;
+            background: var(--gold2);
+            color: var(--navy);
+            padding: 12px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: background .2s
+        }
+
+        .apply-cta a:hover {
+            background: var(--gold)
+        }
+
+        /* RELATED ARTICLES */
+        .related-section {
+            background: var(--off);
+            padding: 80px 0
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px
+        }
+
+        .sec-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 14px
+        }
+
+        .sec-tag::before {
+            content: '';
+            width: 26px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px
+        }
+
+        .sec-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 32px
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px
+        }
+
+        .news-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--light);
+            cursor: pointer;
+            transition: transform .28s, box-shadow .28s;
+            text-decoration: none;
+            display: block;
+            color: inherit
+        }
+
+        .nc-img {
+            height: 200px;
+            overflow: hidden
+        }
+
+        .nc-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s
+        }
+
+        .news-card:hover .nc-img img {
+            transform: scale(1.06)
+        }
+
+        .nc-body {
+            padding: 20px
+        }
+
+        .nc-body h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.35;
+            margin-bottom: 8px;
+            margin-top: 8px
+        }
+
+        .nc-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 10px
+        }
+
+        .nc-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px
+        }
+
+        .nc-meta [data-lucide] {
+            width: 12px;
+            height: 12px
+        }
+
+        .read-more-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--blue);
+            margin-top: 10px;
+            transition: gap .2s
+        }
+
+        .read-more-link:hover {
+            gap: 8px
+        }
+
+        .read-more-link [data-lucide] {
+            width: 13px;
+            height: 13px
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--navy);
+            padding: 72px 0 0
+        }
+
+        .footer-grid {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 52px
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px
+        }
+
+        .footer-logo img {
+            width: 180px;
+            filter: brightness(0) invert(1)
+        }
+
+        .footer-about p {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .45);
+            line-height: 1.75;
+            margin-bottom: 20px;
+            max-width: 290px
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 8px
+        }
+
+        .soc {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .55);
+            transition: background .2s, color .2s
+        }
+
+        .soc:hover {
+            background: var(--gold);
+            color: var(--navy)
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gold2);
+            margin-bottom: 20px
+        }
+
+        .footer-col ul li {
+            margin-bottom: 9px
+        }
+
+        .footer-col ul li a {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .48);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color .2s, padding-left .2s
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+            padding-left: 4px
+        }
+
+        .footer-col ul li a [data-lucide] {
+            width: 12px;
+            height: 12px;
+            opacity: .6
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            align-items: flex-start
+        }
+
+        .footer-contact-item [data-lucide] {
+            width: 14px;
+            height: 14px;
+            color: var(--gold2);
+            flex-shrink: 0;
+            margin-top: 2px
+        }
+
+        .footer-contact-item span,
+        .footer-contact-item a {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .48);
+            line-height: 1.55;
+            transition: color .2s
+        }
+
+        .footer-contact-item a:hover {
+            color: #fff
+        }
+
+        .footer-bottom {
+            max-width: 1320px;
+            margin: 52px auto 0;
+            padding: 20px 32px;
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, .3);
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .footer-bottom a {
+            color: var(--gold2)
+        }
+
+        #btt {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 900;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--navy3);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: opacity .3s, transform .3s
+        }
+
+        #btt.show {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0)
+        }
+
+        #btt:hover {
+            background: var(--gold2)
+        }
+
+        #btt [data-lucide] {
+            width: 18px;
+            height: 18px
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .7s, transform .7s
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        @media(max-width:1100px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+                gap: 40px
+            }
+
+            .article-sidebar {
+                position: static
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px
+            }
+        }
+
+        @media(max-width:900px) {
+            .nav-links {
+                display: none
+            }
+
+            .hamburger {
+                display: flex
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .article-hero-img {
+                height: 340px
+            }
+        }
+
+        @media(max-width:640px) {
+            .footer-grid {
+                grid-template-columns: 1fr
+            }
+
+            .container {
+                padding: 0 20px
+            }
+
+            .nav-inner {
+                padding: 12px 20px
+            }
+
+            .article-layout {
+                padding: 0 20px;
+                padding-top: 48px;
+                padding-bottom: 64px
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr
+            }
+
+            .article-hero-img {
+                height: 260px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div class="nav-inner"><a href="index.html" class="nav-logo"><img src="./medical-college-logo.png"
+                    alt="MNR Medical College Logo"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="https://venkatesh02040.github.io/MNR-Hospital/index.html" target="_blank"
+                        rel="noopener">Hospital <i data-lucide="external-link"
+                            style="width:12px;height:12px;opacity:.6"></i></a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button onclick="toggleMore(this)">More <i data-lucide="chevron-down"></i></button>
+                    <div class="dropdown"><a
+                            href="faculty.html"><i data-lucide="user-circle"></i>Faculty &amp; Staff</a>
+                            <a href="students.html"><i
+                                data-lucide="graduation-cap"></i>Student Zone</a><a href="news-and-events.html"><i
+                                data-lucide="newspaper"></i>News &amp; Events</a><a href="gallery.html"><i
+                                data-lucide="image"></i>Gallery</a>
+                    </div>
+                </li>
+                <li><a href="admissions.html" class="nav-cta">Apply Now</a></li>
+            </ul><button class="hamburger" id="ham"
+                onclick="toggleMobile()"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav"><a href="index.html"><i data-lucide="home"></i>Home</a><a
+            href="about.html"><i data-lucide="info"></i>About Us</a><a href="academics.html"><i
+                data-lucide="book-open"></i>Academics</a><a
+            href="https://venkatesh02040.github.io/MNR-Hospital/index.html" target="_blank"><i
+                data-lucide="heart-pulse"></i>Hospital ↗</a><a href="admissions.html"><i
+                data-lucide="file-text"></i>Admissions</a><a href="faculty.html"><i
+                data-lucide="users"></i>Faculty</a><a href="students.html"><i data-lucide="graduation-cap"></i>Student
+            Zone</a><a href="news-and-events.html"><i data-lucide="newspaper"></i>News &amp; Events</a><a href="contact.html"><i
+                data-lucide="phone"></i>Contact</a></div>
+
+    <div class="article-hero"><img class="article-hero-img"
+            src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1400&q=80"
+            alt="Faculty Appointments 2026">
+        <div class="article-hero-overlay"></div>
+        <div class="article-hero-content">
+            <div class="container" style="max-width:860px">
+                <div class="breadcrumb"><a href="index.html">Home</a><i data-lucide="chevron-right"></i><a
+                        href="news-and-events.html">News &amp; Events</a><i data-lucide="chevron-right"></i><span>Faculty
+                        Appointments 2026</span></div><span class="news-cat cat-faculty">Faculty</span>
+                <h1>Senior Faculty Appointments Announced Across All Departments</h1>
+                <div class="article-meta-row">
+                    <div class="meta-author"><img
+                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&q=80"
+                            alt=""><span>By Dr. Ramesh Nair</span></div>
+                    <div class="meta-item"><i data-lucide="calendar"></i>Feb 10, 2026</div>
+                    <div class="meta-item"><i data-lucide="clock"></i>3 min read</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-layout">
+        <article class="article-body">
+            <p class="lead">MNR Medical College has completed its inaugural faculty recruitment drive — announcing
+                senior appointments across all 25 departments, bringing together a team of experienced clinicians,
+                researchers, and educators who collectively represent decades of excellence in medical education and
+                patient care.</p>
+            <p>Building a great medical college starts with building a great faculty. MNR Medical College has completed
+                its inaugural round of faculty appointments — a process that began in mid-2025 and culminated in
+                February 2026 with the finalisation of appointments across all clinical, para-clinical, and pre-clinical
+                departments. The result is a faculty body that is experienced, credentialed, and deeply committed to
+                MNR's founding vision.</p>
+
+            <h2>The Recruitment Process</h2>
+            <p>MNR's faculty recruitment was conducted through a rigorous multi-stage process: advertisement across
+                national medical journals and platforms, screening of over 800 applications, shortlisting based on
+                academic credentials and clinical experience, a two-panel interview by the Dean's Committee and Academic
+                Council, and final appointments ratified by the MNR Trust Board. All appointments comply with NMC
+                faculty qualification norms and carry competitive pay packages benchmarked against leading private
+                medical colleges in Karnataka.</p>
+
+            <figure class="article-img">
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=900&q=80" alt="MNR Faculty">
+                <figcaption>MNR's inaugural faculty — over 80 senior clinicians and academics appointed across 25
+                    departments before Day 1.</figcaption>
+            </figure>
+
+            <h2>Key Appointments by Department</h2>
+            <ul>
+                <li><strong>Dean &amp; Head of Medicine:</strong> Dr. Ramesh Nair — MBBS, MD (Medicine), FICP — 30+
+                    years at KMC Mangalore and JIPMER Puducherry</li>
+                <li><strong>Medical Director &amp; Prof. of Medicine:</strong> Dr. Ananya Krishnamurthy — MBBS, MD, DNB
+                    — Pioneer in simulation-based medical education in South India</li>
+                <li><strong>Head of General Surgery:</strong> Dr. Suresh Kumar — MBBS, MS (Surgery), FRCS — 25+ years
+                    including fellowship training in the UK</li>
+                <li><strong>Head of Paediatrics:</strong> Dr. Meera Nair — MBBS, MD (Paediatrics), FIAP — Former senior
+                    consultant at Kasturba Hospital, Manipal</li>
+                <li><strong>Head of Radiodiagnosis:</strong> Dr. Priya Hegde — MBBS, MD (Radiology), FICR — Specialist
+                    in interventional radiology with 20 years of experience</li>
+                <li><strong>Head of Pathology:</strong> Dr. Kiran Shetty — MBBS, MD (Pathology), FIAC — Expert in
+                    digital pathology and cytology</li>
+                <li><strong>Head of Anatomy:</strong> Dr. Vijay Rao — MBBS, MS (Anatomy), PhD — Published researcher in
+                    gross anatomy and neuroanatomy</li>
+            </ul>
+
+            <blockquote>
+                "The people in this faculty are not just qualified — they are passionate. Each one of them chose MNR
+                because they believe in what we are building here. That shared conviction is what will make the
+                difference for our students."
+                <cite>— Dr. Ramesh Nair, Dean &amp; Principal, MNR Medical College</cite>
+            </blockquote>
+
+            <h2>Faculty Composition</h2>
+            <p>In total, MNR has appointed over 80 full-time faculty members ahead of the 2026 academic year. The
+                faculty body represents a diverse cross-section of Karnataka's medical establishment:</p>
+            <ul>
+                <li>40% of faculty hold postgraduate degrees from premier institutions — AIIMS, JIPMER, CMC Vellore,
+                    Manipal, and NIMHANS</li>
+                <li>30% have international fellowship or training credentials from the UK, USA, or Australia</li>
+                <li>25% are active researchers with publications in indexed national and international journals</li>
+                <li>The faculty gender ratio is 45% women — significantly above the national average for medical college
+                    faculty</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Faculty at a Glance</h4>
+                <p>80+ full-time appointments &nbsp;·&nbsp; 25 departments covered &nbsp;·&nbsp; Average experience: 18
+                    years per faculty member &nbsp;·&nbsp; 40% from premier national institutions &nbsp;·&nbsp; 30% with
+                    international credentials &nbsp;·&nbsp; 45% women faculty</p>
+            </div>
+
+            <h2>Faculty Induction Program</h2>
+            <p>All newly appointed faculty attended MNR's inaugural Faculty Induction and Orientation Program from March
+                10–12, 2026 — a three-day intensive program covering MNR's academic philosophy, CBME curriculum
+                implementation, simulation-based teaching methodologies, NMC assessment norms, and the institution's
+                research and publication goals.</p>
+
+            <h3>Joining the MNR Team</h3>
+            <p>MNR Medical College continues to recruit for select positions across departments. Interested clinicians
+                and academics can view open positions and apply through the careers section of the MNR website or email
+                <a href="mailto:hr@mnrmedicalcollege.com"
+                    style="color:var(--blue);font-weight:600">hr@mnrmedicalcollege.com</a> with their curriculum vitae
+                and a cover letter outlining their interest in contributing to MNR's founding vision.</p>
+            <div class="article-tags"><span class="tag">Faculty</span><span class="tag">Appointments</span><span
+                    class="tag">Recruitment</span><span class="tag">Academic</span><span
+                    class="tag">Departments</span><span class="tag">2026</span></div>
+        </article>
+        <aside class="article-sidebar">
+            <div class="sidebar-card">
+                <h4>Quick Facts</h4>
+                <ul class="quick-facts">
+                    <li><i data-lucide="calendar"></i><strong>Published</strong><span>Feb 10, 2026</span></li>
+                    <li><i data-lucide="tag"></i><strong>Category</strong><span>Faculty</span></li>
+                    <li><i data-lucide="user"></i><strong>Author</strong><span>Dr. Ramesh Nair</span></li>
+                    <li><i data-lucide="clock"></i><strong>Read Time</strong><span>3 min read</span></li>
+                    <li><i data-lucide="building-2"></i><strong>Department</strong><span>Human Resources &amp; Academic
+                            Affairs</span></li>
+                </ul>
+            </div>
+            <div class="sidebar-card">
+                <h4>Related Articles</h4><a href="inauguration.html" class="sidebar-related-item">
+                    <div class="sri-img"><img
+                            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" alt=""></div>
+                    <div class="sri-body">
+                        <h5>Grand Inauguration Ceremony of MNR Medicity Campus</h5><span>April 2, 2026</span>
+                    </div>
+                </a><a href="mentorship-program.html" class="sidebar-related-item">
+                    <div class="sri-img"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80"
+                            alt=""></div>
+                    <div class="sri-body">
+                        <h5>MNR Launches Mentorship Program for All Students</h5><span>Feb 14, 2026</span>
+                    </div>
+                </a><a href="admissions-open.html" class="sidebar-related-item">
+                    <div class="sri-img"><img
+                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" alt=""></div>
+                    <div class="sri-body">
+                        <h5>MNR Opens Admissions for Inaugural 2026 Batch</h5><span>March 15, 2026</span>
+                    </div>
+                </a>
+            </div>
+            <div class="apply-cta">
+                <h4>Join MNR — Class of 2026</h4>
+                <p>Admissions open for all programs. Be part of something historic.</p><a href="admissions.html">Apply
+                    Now &rarr;</a>
+            </div>
+        </aside>
+    </div>
+
+    <div class="related-section">
+        <div class="container">
+            <div class="sec-tag">More from MNR</div>
+            <h2 class="sec-title">You May Also Like</h2>
+            <div class="related-grid"><a href="inauguration.html" class="news-card reveal">
+                    <div class="nc-img"><img
+                            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" alt=""></div>
+                    <div class="nc-body"><span class="news-cat cat-events">Event</span>
+                        <h3>Grand Inauguration Ceremony of MNR Medicity Campus</h3>
+                        <div class="nc-meta"><span><i data-lucide="calendar"></i>April 2, 2026</span></div><span
+                            class="read-more-link">Read More <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a><a href="mentorship-program.html" class="news-card reveal">
+                    <div class="nc-img"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80"
+                            alt=""></div>
+                    <div class="nc-body"><span class="news-cat cat-faculty">Faculty</span>
+                        <h3>MNR Launches Mentorship Program for All Students</h3>
+                        <div class="nc-meta"><span><i data-lucide="calendar"></i>Feb 14, 2026</span></div><span
+                            class="read-more-link">Read More <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a><a href="admissions-open.html" class="news-card reveal">
+                    <div class="nc-img"><img
+                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" alt=""></div>
+                    <div class="nc-body"><span class="news-cat cat-admissions">Admissions</span>
+                        <h3>MNR Opens Admissions for Inaugural 2026 Batch</h3>
+                        <div class="nc-meta"><span><i data-lucide="calendar"></i>March 15, 2026</span></div><span
+                            class="read-more-link">Read More <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo"><img src="./medical-college-logo.png" alt="MNR Medical College"></div>
+                <p>A brand new world-class medical institution at MNR Medicity Campus, Kolambe, Karnataka — committed to
+                    shaping compassionate, skilled, and ethical doctors.</p>
+                <div class="footer-social"><a href="#" class="soc"><i class="fa-brands fa-facebook-f"></i></a><a
+                        href="#" class="soc"><i class="fa-brands fa-instagram"></i></a><a href="#" class="soc"><i
+                            class="fa-brands fa-linkedin-in"></i></a><a href="#" class="soc"><i
+                            class="fa-brands fa-youtube"></i></a></div>
+            </div>
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="academics.html#mbbs"><i data-lucide="chevron-right"></i>MBBS</a></li>
+                    <li><a href="academics.html#pg"><i data-lucide="chevron-right"></i>MD / MS</a></li>
+                    <li><a href="academics.html#diploma"><i data-lucide="chevron-right"></i>PG Diploma</a></li>
+                    <li><a href="academics.html#superspeciality"><i data-lucide="chevron-right"></i>DM / MCh</a></li>
+                    <li><a href="academics.html#allied"><i data-lucide="chevron-right"></i>BMLT / DMLT</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html"><i data-lucide="chevron-right"></i>About Us</a></li>
+                    <li><a href="admissions.html"><i data-lucide="chevron-right"></i>Admissions</a></li>
+                    <li><a href="news-and-events.html"><i data-lucide="chevron-right"></i>News &amp; Events</a></li>
+                    <li><a href="gallery.html"><i data-lucide="chevron-right"></i>Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="footer-contact-item"><i data-lucide="map-pin"></i><span>MNR Medicity Campus, Kolambe,
+                        Karnataka 574142</span></div>
+                <div class="footer-contact-item"><i data-lucide="phone"></i><a href="tel:+919876543210">+91 98765
+                        43210</a></div>
+                <div class="footer-contact-item"><i data-lucide="mail"></i><a
+                        href="mailto:info@mnrmedicalcollege.com">info@mnrmedicalcollege.com</a></div>
+                <div class="footer-contact-item"><i data-lucide="clock"></i><span>Mon - Sat: 9:00 AM - 5:00 PM</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>&copy; 2026 MNR Medical College. All rights reserved.</span><span>Designed and
+                developed by <a href="https://thinkb.agency/" target="_blank">thinkB</a></span></div>
+    </footer>
+
+    <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i data-lucide="arrow-up"></i></button>
+    <script>
+        lucide.createIcons();
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', scrollY > 10);
+            document.getElementById('btt').classList.toggle('show', scrollY > 320);
+        });
+        function toggleMobile() {
+            document.getElementById('ham').classList.toggle('open');
+            document.getElementById('mobileNav').classList.toggle('open');
+        }
+        document.querySelectorAll('.mobile-nav a').forEach(a => a.addEventListener('click', () => {
+            document.getElementById('ham').classList.remove('open');
+            document.getElementById('mobileNav').classList.remove('open');
+        }));
+        function toggleMore(btn) {
+            const li = btn.closest('li');
+            const isOpen = li.classList.contains('open');
+            document.querySelectorAll('.nav-links>li').forEach(l => l.classList.remove('open'));
+            if (!isOpen) li.classList.add('open');
+            if (!isOpen) {
+                setTimeout(() => {
+                    document.addEventListener('click', function h(e) {
+                        if (!li.contains(e.target)) { li.classList.remove('open'); document.removeEventListener('click', h); }
+                    })
+                }, 10);
+            }
+        }
+        const revObs = new IntersectionObserver(e => { e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); revObs.unobserve(x.target); } }) }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+    </script>
+
+    <a href="https://wa.me/919876543210?text=Hello%20MNR%20College,%20I%20need%20assistance." class="wa-float"
+        target="_blank" aria-label="WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <style>
+        .wa-float {
+            position: fixed;
+            bottom: 86px;
+            right: 24px;
+            width: 50px;
+            height: 50px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 30px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+ 
+
+        @media (max-width: 768px) {
+.wa-float {
+        width: 50px;
+        height: 50px;
+        bottom: 86px;
+        right: 24px;
+        font-size: 28px;
+    }       }
+    </style>
+</body>
+
+</html>

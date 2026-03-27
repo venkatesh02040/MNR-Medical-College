@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty &amp; Staff | MNR Medical College</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1e293b;
+            background: #fff;
+            overflow-x: hidden
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        ul {
+            list-style: none
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer
+        }
+
+        :root {
+            --navy: #0d1f3c;
+            --navy2: #112240;
+            --navy3: #1a3a6e;
+            --blue: #1a56db;
+            --gold: #c8922a;
+            --gold2: #f0b429;
+            --off: #f0f5fa;
+            --off2: #f1f5f9;
+            --gray: #64748b;
+            --light: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 4px 24px rgba(13, 31, 60, .10);
+            --shadow-lg: 0 12px 48px rgba(13, 31, 60, .18)
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #fff;
+            border-bottom: 1px solid var(--light);
+            transition: box-shadow .3s
+        }
+
+        #navbar.scrolled {
+            box-shadow: 0 4px 32px rgba(0, 0, 0, .12)
+        }
+
+        .nav-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 32px
+        }
+
+        .nav-logo img {
+            width: 180px;
+            object-fit: contain
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2px
+        }
+
+        .nav-links>li {
+            position: relative
+        }
+
+        .nav-links>li>a,
+        .nav-links>li>button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 13px;
+            border-radius: 7px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--navy);
+            background: none;
+            border: none;
+            transition: color .2s, background .2s;
+            white-space: nowrap
+        }
+
+        .nav-links>li>a:hover,
+        .nav-links>li>button:hover {
+            color: var(--gold2)
+        }
+
+        .nav-links>li>a.active {
+            color: var(--gold2);
+            font-weight: 600
+        }
+
+        .nav-links>li>a [data-lucide],
+        .nav-links>li>button [data-lucide] {
+            width: 13px;
+            height: 13px;
+            transition: transform .25s;
+            flex-shrink: 0
+        }
+
+        .nav-links>li.open>button [data-lucide="chevron-down"] {
+            transform: rotate(180deg)
+        }
+
+        .dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) translateY(-6px);
+            background: var(--navy);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: var(--radius);
+            padding: 6px;
+            min-width: 215px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .22s, transform .22s;
+            box-shadow: var(--shadow-lg)
+        }
+
+        .nav-links>li.open .dropdown {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateX(-50%) translateY(0)
+        }
+
+        .dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            border-radius: 7px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, .75);
+            transition: background .18s, color .18s
+        }
+
+        .dropdown a:hover {
+            background: rgba(255, 255, 255, .09);
+            color: #fff
+        }
+
+        .dropdown a [data-lucide] {
+            width: 14px;
+            height: 14px;
+            color: var(--gold2);
+            flex-shrink: 0
+        }
+
+        .nav-cta {
+            background: var(--gold2) !important;
+            color: var(--navy) !important;
+            padding: 9px 20px !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            font-size: 13px !important;
+            margin-left: 8px
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            border: none;
+            background: none
+        }
+
+        .hamburger span {
+            width: 22px;
+            height: 2px;
+            background: var(--navy);
+            border-radius: 2px;
+            transition: .3s;
+            display: block
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg)
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg)
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: var(--navy);
+            z-index: 998;
+            padding: 24px 0 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s cubic-bezier(.4, 0, .2, 1)
+        }
+
+        .mobile-nav.open {
+            max-height: 600px
+        }
+
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 32px;
+            font-size: 15px;
+            color: rgba(255, 255, 255, .78);
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            transition: color .2s, padding-left .2s
+        }
+
+        .mobile-nav a [data-lucide] {
+            width: 15px;
+            height: 15px;
+            color: var(--gold2)
+        }
+
+        .mobile-nav a:hover {
+            color: var(--gold2);
+            padding-left: 40px
+        }
+
+        .page-hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--navy) 0%, #0d2550 60%, #0a1e42 100%);
+            position: relative;
+            overflow: hidden
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1668282690278-8127bc0b9e00?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
+            opacity: 0.2
+        }
+
+        .page-hero-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 1
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, .45);
+            margin-bottom: 18px
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, .45)
+        }
+
+        .breadcrumb a:hover {
+            color: var(--gold2)
+        }
+
+        .breadcrumb [data-lucide] {
+            width: 12px;
+            height: 12px
+        }
+
+        .page-hero-inner h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 18px
+        }
+
+        .page-hero-inner h1 em {
+            color: var(--gold2);
+            font-style: normal
+        }
+
+        .page-hero-inner p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, .65);
+            max-width: 560px;
+            line-height: 1.75;
+            font-weight: 300
+        }
+
+        section {
+            padding: 96px 0
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px
+        }
+
+        .sec-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 14px
+        }
+
+        .sec-tag::before {
+            content: '';
+            width: 26px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px
+        }
+
+        .sec-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(28px, 3.5vw, 44px);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 14px
+        }
+
+        .sec-sub {
+            font-size: 16px;
+            color: var(--gray);
+            line-height: 1.75;
+            max-width: 560px
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* DEPT FILTER */
+        .dept-filter {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 40px
+        }
+
+        .dept-btn {
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray);
+            border: 1.5px solid var(--light);
+            background: #fff;
+            transition: all .2s;
+            cursor: pointer
+        }
+
+        .dept-btn.active,
+        .dept-btn:hover {
+            background: var(--navy);
+            color: #fff;
+            border-color: var(--navy)
+        }
+
+        /* FACULTY GRID */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px
+        }
+
+        .faculty-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--light);
+            transition: transform .28s, box-shadow .28s
+        }
+
+        .faculty-card.hidden {
+            display: none
+        }
+
+        .fc-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative
+        }
+
+        .fc-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s
+        }
+
+        .faculty-card:hover .fc-img img {
+            transform: scale(1.05)
+        }
+
+        .fc-dept-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: var(--navy);
+            color: var(--gold2);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px
+        }
+
+        .fc-body {
+            padding: 18px 20px
+        }
+
+        .fc-body h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 3px
+        }
+
+        .fc-body .fc-title {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--blue);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: .05em
+        }
+
+        .fc-body .fc-qual {
+            font-size: 12px;
+            color: var(--gray);
+            margin-bottom: 12px
+        }
+
+        .fc-body .fc-exp {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--navy);
+            background: var(--off);
+            padding: 4px 10px;
+            border-radius: 20px
+        }
+
+        .fc-body .fc-exp [data-lucide] {
+            width: 12px;
+            height: 12px
+        }
+
+        /* DEPARTMENTS section */
+        .dept-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 48px
+        }
+
+        .dept-card {
+            background: #fff;
+            border-radius: 14px;
+            border: 1px solid var(--light);
+            padding: 24px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: border-color .22s, box-shadow .22s, transform .22s
+        }
+
+        .dept-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            background: #eff6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .dept-icon [data-lucide] {
+            width: 22px;
+            height: 22px;
+            color: var(--blue)
+        }
+
+        .dept-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px
+        }
+
+        .dept-card p {
+            font-size: 13px;
+            color: var(--gray)
+        }
+
+        footer {
+            background: var(--navy);
+            padding: 72px 0 0
+        }
+
+        .footer-grid {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 52px
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px
+        }
+
+        .footer-logo img {
+            width: 180px;
+            filter: brightness(0) invert(1)
+        }
+
+        .footer-about p {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .45);
+            line-height: 1.75;
+            margin-bottom: 20px;
+            max-width: 290px
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 8px
+        }
+
+        .soc {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .55);
+            transition: background .2s, color .2s
+        }
+
+        .soc:hover {
+            background: var(--gold);
+            color: var(--navy)
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gold2);
+            margin-bottom: 20px
+        }
+
+        .footer-col ul li {
+            margin-bottom: 9px
+        }
+
+        .footer-col ul li a {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .48);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color .2s, padding-left .2s
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+            padding-left: 4px
+        }
+
+        .footer-col ul li a [data-lucide] {
+            width: 12px;
+            height: 12px;
+            opacity: .6
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            align-items: flex-start
+        }
+
+        .footer-contact-item [data-lucide] {
+            width: 14px;
+            height: 14px;
+            color: var(--gold2);
+            flex-shrink: 0;
+            margin-top: 2px
+        }
+
+        .footer-contact-item span,
+        .footer-contact-item a {
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .48);
+            line-height: 1.55;
+            transition: color .2s
+        }
+
+        .footer-contact-item a:hover {
+            color: #fff
+        }
+
+        .footer-bottom {
+            max-width: 1320px;
+            margin: 52px auto 0;
+            padding: 20px 32px;
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, .3);
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .footer-bottom a {
+            color: var(--gold2)
+        }
+
+        #btt {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 900;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--navy3);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: opacity .3s, transform .3s
+        }
+
+        #btt.show {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0)
+        }
+
+        #btt:hover {
+            background: var(--gold2)
+        }
+
+        #btt [data-lucide] {
+            width: 18px;
+            height: 18px
+        }
+
+        @media(max-width:1100px) {
+            .faculty-grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .dept-cards {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px
+            }
+        }
+
+        @media(max-width:900px) {
+            .nav-links {
+                display: none
+            }
+
+            .hamburger {
+                display: flex
+            }
+
+            section {
+                padding: 64px 0
+            }
+
+            .faculty-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .dept-cards {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:640px) {
+            .footer-grid {
+                grid-template-columns: 1fr
+            }
+
+            .container {
+                padding: 0 20px
+            }
+
+            .nav-inner {
+                padding: 12px 20px
+            }
+
+            .faculty-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><img src="./medical-college-logo.png"
+                    alt="MNR Medical College Logo"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="https://venkatesh02040.github.io/MNR-Hospital/index.html" target="_blank"
+                        rel="noopener">Hospital <i data-lucide="external-link"
+                            style="width:12px;height:12px;opacity:.6"></i></a></li>
+                <li><a href="contact.html">Contact</a></li>
+                 <li>
+                    <button onclick="toggleMore(this)">More <i data-lucide="chevron-down"></i></button>
+                    <div class="dropdown">
+                        <a href="faculty.html"><i data-lucide="user-circle"></i>Faculty &amp; Staff</a>
+                        <a href="students.html"><i data-lucide="graduation-cap"></i>Student Zone</a>
+                        <a href="news-and-events.html"><i data-lucide="newspaper"></i>News &amp; Events</a>
+                        <a href="gallery.html"><i data-lucide="image"></i>Gallery</a>
+                    </div>
+                </li>
+                <li><a href="admissions.html" class="nav-cta">Apply Now</a></li>
+            </ul>
+            <button class="hamburger" id="ham" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html"><i data-lucide="home"></i>Home</a>
+        <a href="about.html"><i data-lucide="info"></i>About Us</a>
+        <a href="academics.html"><i data-lucide="book-open"></i>Academics</a>
+        <a href="https://venkatesh02040.github.io/MNR-Hospital/index.html" target="_blank"><i
+                data-lucide="heart-pulse"></i>Hospital ↗</a>
+        <a href="admissions.html"><i data-lucide="file-text"></i>Admissions</a>
+        <a href="faculty.html"><i data-lucide="users"></i>Faculty</a>
+        <a href="students.html"><i data-lucide="graduation-cap"></i>Student Zone</a>
+        <a href="news-and-events.html"><i data-lucide="newspaper"></i>News &amp; Events</a>
+        <a href="contact.html"><i data-lucide="phone"></i>Contact</a>
+    </div>
+
+    <div class="page-hero">
+        <div class="page-hero-inner">
+            <div class="breadcrumb"><a href="index.html">Home</a><i data-lucide="chevron-right"></i><span>Faculty &amp;
+                    Staff</span></div>
+            <h1>Our <em>Faculty</em><br>&amp; Staff</h1>
+            <p>Meet the accomplished clinicians, researchers, and educators who shape medical excellence at MNR — each
+                bringing decades of specialized expertise.</p>
+        </div>
+    </div>
+
+    <!-- FACULTY -->
+    <section>
+        <div class="container">
+            <div class="reveal"
+                style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:32px">
+                <div>
+                    <div class="sec-tag">Our Team</div>
+                    <h2 class="sec-title">Meet the Faculty</h2>
+                    <p class="sec-sub">Senior appointments across all clinical, para-clinical, and pre-clinical
+                        departments.</p>
+                </div>
+            </div>
+            <div class="dept-filter reveal">
+                <button class="dept-btn active" onclick="filterDept('all',this)">All Departments</button>
+                <button class="dept-btn" onclick="filterDept('medicine',this)">Medicine</button>
+                <button class="dept-btn" onclick="filterDept('surgery',this)">Surgery</button>
+                <button class="dept-btn" onclick="filterDept('paediatrics',this)">Paediatrics</button>
+                <button class="dept-btn" onclick="filterDept('radiology',this)">Radiology</button>
+                <button class="dept-btn" onclick="filterDept('pathology',this)">Pathology</button>
+                <button class="dept-btn" onclick="filterDept('anatomy',this)">Pre-Clinical</button>
+            </div>
+            <div class="faculty-grid" id="facultyGrid">
+                <div class="faculty-card reveal" data-dept="medicine">
+                    <div class="fc-img"><img
+                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80"
+                            alt="Dr. Ramesh">
+                        <div class="fc-dept-badge">Medicine</div>
+                    </div>
+                    <div class="fc-body">
+                        <h3>Dr. Ramesh Nair</h3>
+                        <div class="fc-title">Dean &amp; Head of Medicine</div>
+                        <div class="fc-qual">MBBS · MD (Medicine) · FICP</div><span class="fc-exp"><i
+                                data-lucide="clock"></i>30 Yrs Experience</span>
+                    </div>
+                </div>
+                <div class="faculty-card reveal" data-dept="medicine">
+                    <div class="fc-img"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80"
+                            alt="Dr. Ananya">
+                        <div class="fc-dept-badge">Medicine</div>
+                    </div>
+                    <div class="fc-body">
+                        <h3>Dr. Ananya Krishnamurthy</h3>
+                        <div class="fc-title">Medical Director · Prof. Medicine</div>
+                        <div class="fc-qual">MBBS · MD · DNB (Medicine)</div><span class="fc-exp"><i
+                                data-lucide="clock"></i>22 Yrs Experience</span>
+                    </div>
+                </div>
+                <div class="faculty-card reveal" data-dept="surgery">
+                    <div class="fc-img"><img
+                            src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&q=80"
+                            alt="Dr. Suresh">
+                        <div class="fc-dept-badge">Surgery</div>
+                    </div>
+                    <div class="fc-body">
+                        <h3>Dr. Suresh Kumar</h3>
+                        <div class="fc-title">Professor &amp; Head, General Surgery</div>
+                        <div class="fc-qual">MBBS · MS (Surgery) · FRCS</div><span class="fc-exp"><i
+                                data-lucide="clock"></i>25 Yrs Experience</span>
+                    </div>
+                </div>
+                <div class="faculty-card reveal" data-dept="paediatrics">
+                    <div class="fc-img"><img
+                            src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80"
+                            alt="Dr. Meera">
+                        <div class="fc-dept-badge">Paediatrics</div>
+                    </div>
+                    <div class="fc-body">
+                        <h3>Dr. Meera Nair</h3>
+                        <div class="fc-title">Professor, Paediatrics</div>
+                        <div class="fc-qual">MBBS · MD (Paed) · FIAP</div><span class="fc-exp"><i
+                                data-lucide="clock"></i>18 Yrs Experience</span>
+                    </div>
+                </div>
+                <div class="faculty-card reveal" data-dept="radiology">
+                    <div class="fc-img"><img
+                            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80"
+                            alt="Dr. Priya">
+                        <div class="fc-dept-badge">Radiology</div>
+                    </div>
+                    <div class="fc-body">
+                        <h3>Dr. Priya Hegde</h3>
+                        <div class="fc-title">Prof. &amp; Head, Radiodiagnosis</div>
+                        <div class="fc-qual">MBBS · MD (Radiology) · FICR</div><span class="fc-exp"><i
+                                data-lucide="clock"></i>20 Yrs Experience</span>
+                    </div>
+                </div>
+                <div class="faculty-card reveal" data-dept="pathology">
+                    <div class="fc-img"><img
+                            src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=400&q=80"
+                            alt="Dr. Kiran">
+                        <div class="fc-dept-badge">Pathology</div>
+                    </div>
+                    <div class="fc-body">
+                        <h3>Dr. Kiran Shetty</h3>
+                        <div class="fc-title">Prof. &amp; Head, Pathology</div>
+                        <div class="fc-qual">MBBS · MD (Pathology) · FIAC</div><span class="fc-exp"><i
+                                data-lucide="clock"></i>15 Yrs Experience</span>
+                    </div>
+                </div>
+                <div class="faculty-card reveal" data-dept="anatomy">
+                    <div class="fc-img"><img
+                            src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&q=80"
+                            alt="Dr. Vijay">
+                        <div class="fc-dept-badge">Pre-Clinical</div>
+                    </div>
+                    <div class="fc-body">
+                        <h3>Dr. Vijay Rao</h3>
+                        <div class="fc-title">Prof. &amp; Head, Anatomy</div>
+                        <div class="fc-qual">MBBS · MS (Anatomy) · PhD</div><span class="fc-exp"><i
+                                data-lucide="clock"></i>20 Yrs Experience</span>
+                    </div>
+                </div>
+                <div class="faculty-card reveal" data-dept="surgery">
+                    <div class="fc-img"><img
+                            src="https://images.unsplash.com/photo-1612531386530-97286d97c2d2?w=400&q=80"
+                            alt="Dr. Arun">
+                        <div class="fc-dept-badge">Surgery</div>
+                    </div>
+                    <div class="fc-body">
+                        <h3>Dr. Arun Mallya</h3>
+                        <div class="fc-title">Associate Professor, Surgery</div>
+                        <div class="fc-qual">MBBS · MS · DNB (Surgery)</div><span class="fc-exp"><i
+                                data-lucide="clock"></i>12 Yrs Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPARTMENTS -->
+    <section style="background:var(--off)">
+        <div class="container">
+            <div class="reveal" style="text-align:center">
+                <div class="sec-tag" style="justify-content:center">Departments</div>
+                <h2 class="sec-title">Academic Departments</h2>
+                <p class="sec-sub" style="margin:0 auto">25+ active departments across pre-clinical, para-clinical, and
+                    clinical sciences.</p>
+            </div>
+            <div class="dept-cards">
+                <div class="dept-card reveal">
+                    <div class="dept-icon"><i data-lucide="activity"></i></div>
+                    <div>
+                        <h4>Department of Medicine</h4>
+                        <p>General Medicine, Cardiology, Neurology, Nephrology, Endocrinology</p>
+                    </div>
+                </div>
+                <div class="dept-card reveal">
+                    <div class="dept-icon"><i data-lucide="scissors"></i></div>
+                    <div>
+                        <h4>Department of Surgery</h4>
+                        <p>General Surgery, Neurosurgery, Urology, Cardiothoracic, Plastic Surgery</p>
+                    </div>
+                </div>
+                <div class="dept-card reveal">
+                    <div class="dept-icon"><i data-lucide="baby"></i></div>
+                    <div>
+                        <h4>Paediatrics &amp; Neonatology</h4>
+                        <p>Child health, neonatal ICU, paediatric surgery, developmental medicine</p>
+                    </div>
+                </div>
+                <div class="dept-card reveal">
+                    <div class="dept-icon"><i data-lucide="scan"></i></div>
+                    <div>
+                        <h4>Radiodiagnosis &amp; Imaging</h4>
+                        <p>MRI, CT, X-Ray, Ultrasound, Nuclear Medicine, Interventional Radiology</p>
+                    </div>
+                </div>
+                <div class="dept-card reveal">
+                    <div class="dept-icon"><i data-lucide="microscope"></i></div>
+                    <div>
+                        <h4>Pathology &amp; Lab Medicine</h4>
+                        <p>Histopathology, cytology, hematology, biochemistry, clinical pathology</p>
+                    </div>
+                </div>
+                <div class="dept-card reveal">
+                    <div class="dept-icon"><i data-lucide="flask-conical"></i></div>
+                    <div>
+                        <h4>Microbiology &amp; Immunology</h4>
+                        <p>Bacteriology, virology, mycology, parasitology, immunology</p>
+                    </div>
+                </div>
+                <div class="dept-card reveal">
+                    <div class="dept-icon"><i data-lucide="pill"></i></div>
+                    <div>
+                        <h4>Pharmacology</h4>
+                        <p>Clinical pharmacology, toxicology, drug research, rational drug use</p>
+                    </div>
+                </div>
+                <div class="dept-card reveal">
+                    <div class="dept-icon"><i data-lucide="users"></i></div>
+                    <div>
+                        <h4>Community Medicine</h4>
+                        <p>Public health, epidemiology, primary healthcare, biostatistics, social medicine</p>
+                    </div>
+                </div>
+                <div class="dept-card reveal">
+                    <div class="dept-icon"><i data-lucide="heart"></i></div>
+                    <div>
+                        <h4>Obstetrics &amp; Gynaecology</h4>
+                        <p>High-risk obstetrics, reproductive medicine, gynaecologic oncology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo"><img src="./medical-college-logo.png" alt="MNR Medical College"></div>
+                <p>A brand new world-class medical institution at MNR Medicity Campus, Kolambe, Karnataka.</p>
+                <div class="footer-social"><a href="#" class="soc"><i class="fa-brands fa-facebook-f"></i></a><a
+                        href="#" class="soc"><i class="fa-brands fa-instagram"></i></a><a href="#" class="soc"><i
+                            class="fa-brands fa-linkedin-in"></i></a><a href="#" class="soc"><i
+                            class="fa-brands fa-youtube"></i></a></div>
+            </div>
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="academics.html#mbbs"><i data-lucide="chevron-right"></i>MBBS</a></li>
+                    <li><a href="academics.html#pg"><i data-lucide="chevron-right"></i>MD / MS</a></li>
+                    <li><a href="academics.html#diploma"><i data-lucide="chevron-right"></i>PG Diploma</a></li>
+                    <li><a href="academics.html#superspeciality"><i data-lucide="chevron-right"></i>DM / MCh</a></li>
+                    <li><a href="academics.html#allied"><i data-lucide="chevron-right"></i>BMLT / DMLT</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html"><i data-lucide="chevron-right"></i>About Us</a></li>
+                    <li><a href="admissions.html"><i data-lucide="chevron-right"></i>Admissions</a></li>
+                    <li><a href="faculty.html"><i data-lucide="chevron-right"></i>Faculty</a></li>
+                    <li><a href="students.html"><i data-lucide="chevron-right"></i>Student Zone</a></li>
+                    <li><a href="https://venkatesh02040.github.io/MNR-Hospital/index.html" target="_blank"><i
+                                data-lucide="chevron-right"></i>MNR Hospital ↗</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="footer-contact-item"><i data-lucide="map-pin"></i><a href="https://maps.app.goo.gl/hkBdSHg7KFW2cY4w7">
+                        MNR Medicity Campus, Kolambe, Behind Bajpe Proper, Karnataka 574142
+                    </a></div>
+                <div class="footer-contact-item"><i data-lucide="phone"></i><a href="tel:+919876543210">+91 98765
+                        43210</a></div>
+                <div class="footer-contact-item"><i data-lucide="mail"></i><a
+                        href="mailto:info@mnrmedicalcollege.com">info@mnrmedicalcollege.com</a></div>
+                <div class="footer-contact-item"><i data-lucide="clock"></i><span>Mon – Sat: 9:00 AM – 5:00 PM</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>©
+                <script>document.write(new Date().getFullYear())</script> MNR Medical College. All rights reserved.
+            </span><span>Designed and developed by <a href="https://thinkb.agency/" target="_blank">thinkB</a></span>
+        </div>
+    </footer>
+    <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i data-lucide="arrow-up"></i></button>
+
+    <script>
+        lucide.createIcons();
+        window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', scrollY > 10); document.getElementById('btt').classList.toggle('show', scrollY > 320) });
+        function toggleMobile() { document.getElementById('ham').classList.toggle('open'); document.getElementById('mobileNav').classList.toggle('open') }
+        document.querySelectorAll('.mobile-nav a').forEach(a => a.addEventListener('click', () => { document.getElementById('ham').classList.remove('open'); document.getElementById('mobileNav').classList.remove('open') }));
+        function toggleMore(btn) { const li = btn.closest('li'); const isOpen = li.classList.contains('open'); document.querySelectorAll('.nav-links>li').forEach(l => l.classList.remove('open')); if (!isOpen) li.classList.add('open'); if (!isOpen) { setTimeout(() => { document.addEventListener('click', function h(e) { if (!li.contains(e.target)) { li.classList.remove('open'); document.removeEventListener('click', h) } }) }, 10) } }
+        function filterDept(dept, btn) {
+            document.querySelectorAll('.dept-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.faculty-card').forEach(c => {
+                if (dept === 'all' || c.dataset.dept === dept) { c.classList.remove('hidden') } else { c.classList.add('hidden') }
+            });
+        }
+        const revObs = new IntersectionObserver((e) => { e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); revObs.unobserve(x.target) } }) }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+    </script>
+
+    <a href="https://wa.me/919876543210?text=Hello%20MNR%20College,%20I%20need%20assistance." class="wa-float"
+        target="_blank" aria-label="WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <style>
+        .wa-float {
+            position: fixed;
+            bottom: 86px;
+            right: 24px;
+            width: 50px;
+            height: 50px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 30px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+ 
+
+        @media (max-width: 768px) {
+.wa-float {
+        width: 50px;
+        height: 50px;
+        bottom: 86px;
+        right: 24px;
+        font-size: 28px;
+    }       }
+    </style>
+</body>  
+
+</html>
